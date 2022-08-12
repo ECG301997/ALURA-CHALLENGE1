@@ -6,7 +6,7 @@ let data = 1;
 
 const encryptContent = () => {
     const decryptVar = document.querySelector(`.btn-decrypt`);
-    const encryptVar = document.querySelector(`.btn-encrypt`);
+    const encryptVar = document.querySelector(`.btn-encrypt`);  
     data = 1;
     encryptVar.style.backgroundColor = colorblue;
     encryptVar.style.color = colorwhite;
