@@ -1,48 +1,126 @@
-/*
+const text = document.getElementById('inicial');
+const btnEncriptar = document.getElementById('encriptar');
+const btnDesencriptar = document.getElementById('desencriptar');
+const btnCopiar = document.getElementById('copiar');
 
-La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
+// VENTANA MODAL
 
 
-*/
-const encriptar = (texto)=>{
-    texto = texto.replace(' ','/');
-    let arr =[];
-    console.log(arr)
-    for(let i = 0;i<texto.length;i++){
-            arr.push(texto[i]);
-        }
-    for(let i = 0;i<arr.length;i++){
-        if(arr[i]=='a'){
-            arr[i] = 'ai';
-        }else if (arr[i]=='e'){
-            arr[i] = 'enter';
-        }else if (arr[i]=='i'){
-            arr[i] = 'imes';
-        }else if (arr[i]=='o'){
-            arr[i] = 'ober';
-        }else if(arr[i] =='u'){
-            arr[i] = 'ufat';
-        }
+  // Crear elementos con atributos e hijo
+  const createCustomElement = (element, attributes, children) => {
+    let customElement = document.createElement(element);
+    if (children !== undefined) children.forEach(el => {
+      if (el.nodeType) {
+        if (el.nodeType === 1 || el.nodeType === 11) customElement.appendChild(el);
+      } else {
+        customElement.innerHTML += el;
+      }
+    });
+    addAttributes(customElement, attributes);
+    return customElement;
+  };
+
+  // Añadir un objeto de atributos a un elemento
+  const addAttributes = (element, attrObj) => {
+    for (let attr in attrObj) {
+      if (attrObj.hasOwnProperty(attr)) element.setAttribute(attr, attrObj[attr])
     }
-    let textoEncriptado = arr.toString();
-    textoEncriptado = textoEncriptado.replace(/,/g,'');
-    textoEncriptado = textoEncriptado.replace('/',' ');
-    return textoEncriptado;
+  };
+
+
+  // imprimir modal
+
+  const printModal = content => {
+    // crear contenedor interno
+    const modalContentEl = createCustomElement('div', {
+      id: 'ed-modal-content',
+      class: 'ed-modal-content'
+    }, [content]),
+      // crear contenedor principal
+      modalContainerEl = createCustomElement('div', {
+        id: 'ed-modal-container',
+        class: 'ed-modal-container'
+      }, [modalContentEl]);
+    // imprimir el modal
+    document.body.appendChild(modalContainerEl);
+
+    // Remover el modal
+    const removeModal = () =>
+      document.body.removeChild(modalContainerEl);
+    modalContainerEl.addEventListener('click', e => {
+      if(e.target === modalContainerEl){
+        removeModal();
+      }
+    })
+
+  }
+ 
+// ENCRIPTACION
+
+// Validacion solo minusculas y que no esté vacio
+function validarTexto() {
+  let regxp = /^([a-z0-9\s]){1,}$/;
+  if (text != regxp) {
+    return (regxp.test(text.value));
+
+  }
 }
-console.log(encriptar('hola como estas'))
 
-/*var textoEncriptar = "hola como estas"
 
-var textoEncriptado2 = textoEncriptar.replace(/[aeiou]/g, function (match) {
-  if (match === "a") return "ai"
-  if (match === "e") return "enter"
-  if (match === "i") return "imes"
-  if (match === "o") return "ober"
-  if (match === "u") return "ufat"
-})
+// encriptacion
+const encriptar = () => {
+    const textoEncriptado = text.value.replace(/[aeiou]/g, function (match) {
+      if (match === "a") return "ai"
+      if (match === "e") return "enter"
+      if (match === "i") return "imes"
+      if (match === "o") return "ober"
+      if (match === "u") return "ufat"
+    })
+    document.getElementById('resultado').innerText = textoEncriptado;
+}
 
-console.log(textoEncriptado2)*/
+
+// desencriptar
+const desencriptar = () => {
+
+    let palabrasclave = [/enter/g, /imes/g, /ai/g, /ober/g, /ufat/g];
+    let desencriptador = ["e", "i", "a", "o", "u"];
+    let textoEncriptado = text.value;
+    for (let i = 0; i < textoEncriptado.length; i++) {
+      textoEncriptado = textoEncriptado.replace(palabrasclave[i], desencriptador[i]);
+    }
+    const texto = textoEncriptado
+    document.getElementById('resultado').innerHTML = texto;
+}
+
+// validacion encriptacion
+const encriptacion = () => {
+  const texto = validarTexto();
+  if (texto) {
+    encriptar();
+  } else {
+      printModal(`<img src='img/muneco.png'>`)
+  }
+}
+// validacion desencriptacion
+const desencriptacion = () => {
+  const texto = validarTexto();
+  if (texto) {
+    desencriptar();
+  } else {
+    printModal(`<img src='img/muneco.png'>`)
+  }
+}
+
+// Funcion para copiar 
+
+const copiar = () =>{
+  const resultado = document.getElementById('resultado');
+  resultado.select()
+  document.execCommand("copy")
+  alert("Texto copiado")
+}
+
+btnEncriptar.addEventListener('click',encriptacion);
+btnDesencriptar.addEventListener('click',desencriptacion);
+btnCopiar.addEventListener('click',copiar);

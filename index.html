@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oi Alura latam Como vai?</title>
+    <title>Encriptador</title>
     <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
-
 <body>
     <div class="contenedor">
         <section class="contenedor-izquierdo">
@@ -19,25 +19,23 @@
             </div>
             <div>
                 <form>
-                    <textarea placeholder="Ingrese el texto AQUI" name="" id=""></textarea>
+                    <textarea placeholder="Ingrese el texto AQUI" id="inicial"></textarea>
                     <div>
                         <img src="img/exclamacion.png" class="img-alerta"alt="Alerta" width="20" height="20">
                         <span class="alerta">Solo letras minusculas y sin acento.</span>
                     </div>
-                    <button type="button" class="boton boton-azul">Encriptar</button>
-                    <button type="button" class="boton boton-border">Desencriptar</button>
+                    <button type="button" id="encriptar" class="boton boton-azul" >Encriptar</button>
+                    <button type="button" id ="desencriptar" class="boton boton-border">Desencriptar</button>
                 </form>
             </div>
         </section>
         <section class="contenedor-derecho">
-            <div class="aside">
-                <p class="texto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores odit ea eveniet excepturi non, cumque labore accusamus? Fugit nesciunt recusandae dicta sed delectus soluta adipisci quis modi deleniti harum blanditiis ipsa tenetur, consectetur cupiditate incidunt vel quo voluptatem labore ut facilis voluptas eligendi quae reprehenderit! Nesciunt, minus commodi. Quos ipsam necessitatibus rem maxime nihil. Porro in soluta quod culpa nesciunt omnis sint nemo autem necessitatibus. Libero non atque obcaecati odio quo ad iure necessitatibus deleniti illo inventore cupiditate, suscipit minus, veritatis itaque provident, quasi quaerat omnis asperiores aliquid vitae et.</p>
-                <button type="button" class="boton boton-border boton-copiar">Copiar</button>
+            <div class="aside" id="respuesta">
+                <textarea class="texto" id="resultado"></textarea>
+                <button type="button" id="copiar" class="boton boton-border boton-copiar">Copiar</button>
             </div>
         </section>
     </div>
 </body>
-
-<script href="js/encriptacion.js"></script>
-
+<script src="js/encriptacion.js"></script>
 </html>
