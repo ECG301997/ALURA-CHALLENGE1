@@ -47,7 +47,7 @@ textarea {
     color: var(--colorFuente);
     text-indent: center;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 2px;
 }
 
@@ -128,7 +128,6 @@ textarea {
     height: 100vh;
     display: flex;
     left: 0;
-    border: 1px solid red;
 }
 
 .ed-modal-container::before {
