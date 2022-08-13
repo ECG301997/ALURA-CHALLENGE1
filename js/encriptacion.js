@@ -5,8 +5,7 @@ const btnCopiar = document.getElementById('copiar');
 
 // VENTANA MODAL
 
-
-  // Crear elementos con atributos e hijo
+// Crear elementos con atributos e hijo
   const createCustomElement = (element, attributes, children) => {
     let customElement = document.createElement(element);
     if (children !== undefined) children.forEach(el => {
@@ -62,7 +61,6 @@ function validarTexto() {
   let regxp = /^([a-z0-9\s]){1,}$/;
   if (text != regxp) {
     return (regxp.test(text.value));
-
   }
 }
 
