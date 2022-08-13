@@ -75,6 +75,7 @@ const encriptar = () => {
       if (match === "u") return "ufat"
     })
     document.getElementById('resultado').innerText = textoEncriptado;
+    document.getElementById('inicial').value = "";
 }
 
 
@@ -89,6 +90,7 @@ const desencriptar = () => {
     }
     const texto = textoEncriptado
     document.getElementById('resultado').innerHTML = texto;
+    document.getElementById('inicial').value = "";
 }
 
 // validacion encriptacion
