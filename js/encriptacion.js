@@ -1,3 +1,4 @@
+// obtener elementos del DOM
 const text = document.getElementById('inicial');
 const btnEncriptar = document.getElementById('encriptar');
 const btnDesencriptar = document.getElementById('desencriptar');
@@ -118,7 +119,7 @@ const copiar = () =>{
   const resultado = document.getElementById('resultado');
   resultado.select()
   document.execCommand("copy")
-  alert("Texto copiado")
+  swal("Texto copiado","Texto copiado al portapapeles","success")
 }
 
 btnEncriptar.addEventListener('click',encriptacion);

@@ -19,7 +19,6 @@ body {
     padding: 1.5em 1em;
     font-family: var(--fuente);
     word-spacing: 1px;
-
 }
 
 .imagen {
@@ -27,7 +26,6 @@ body {
     height: 40px;
     margin-bottom: 2em;
 }
-
 .imagen img {
     width: 80%;
     height: 100%;
@@ -154,7 +152,7 @@ textarea {
     width: 100%;
 }
 
-@media screen and (min-width:768)and(max-width: 1099px ) {
+@media screen and (min-width:768)and(max-width: 1099ñpx ) {
 
     .contenedor-izq {
         width: 100%;
