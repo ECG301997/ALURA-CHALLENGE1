@@ -95,7 +95,7 @@ const desencriptar = () => {
 }
 
 // validacion encriptacion
-const encriptacion = () => {
+const encriptacion = () => { 
   const texto = validarTexto();
   if (texto) {
     encriptar();
