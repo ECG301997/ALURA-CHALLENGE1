@@ -14,7 +14,7 @@
     --color-aside: #495057;
 }
 
-body {
+body { 
     background-color: var(--color-body);
     padding: 1.5em 1em;
     font-family: var(--fuente);

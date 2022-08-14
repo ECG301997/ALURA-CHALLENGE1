@@ -114,7 +114,7 @@ const desencriptacion = () => {
 }
 
 // Funcion para copiar   
-
+ 
 const copiar = () =>{
   const resultado = document.getElementById('resultado');
   resultado.select()
