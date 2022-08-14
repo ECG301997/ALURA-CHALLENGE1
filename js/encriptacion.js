@@ -58,7 +58,7 @@ const btnCopiar = document.getElementById('copiar');
 
 // Validacion solo minusculas y que no esté vacio
 function validarTexto() {
-  let regxp = /^([a-z0-9\s]){1,}$/;
+  let regxp = /^([a-z0-9\s\n]){1,}$/;
   if (text != regxp) {
     return (regxp.test(text.value));
   }
