@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <section class="contenedor-izquierdo">
+            <div class="imagen">
+                <img src="img/Logo.png" alt="Logo">
+            </div>
+            <div class="contenedor-izq">
+                <form>
+                    <textarea placeholder="Ingrese el texto AQUI" id="inicial"></textarea>
+                    <div>
+                        <img src="img/exclamacion.png" class="img-alerta"alt="Alerta" width="20" height="20">
+                        <span class="alerta">Solo letras minusculas,sin acento ni caracteres especiales.</span>
+                    </div>
+                    <button type="button" id="encriptar" class="boton boton-azul" >Encriptar</button>
+                    <button type="button" id ="desencriptar" class="boton boton-border">Desencriptar</button>
+                </form>
+            </div>
+        </section>   
+        <section class="contenedor-derecho">
+            <div class="aside" id="respuesta">
+                <textarea class="texto" id="resultado" placeholder="Respuesta"></textarea>
+                <button type="button" id="copiar" class="boton boton-border boton-copiar">Copiar</button>
+            </div>
+        </section>
+    </div> 
+</body>
+<script src="js/encriptacion.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>   
